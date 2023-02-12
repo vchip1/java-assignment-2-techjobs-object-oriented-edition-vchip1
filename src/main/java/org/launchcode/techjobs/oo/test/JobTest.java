@@ -25,14 +25,26 @@ public class JobTest {
     public void testJobConstructorSetsAllFields() {
         Job productTester = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        assertEquals(productTester.getName(), "Product tester");
-        assertEquals(productTester.getEmployer(), "ACME");
-        assertEquals(productTester.getLocation(), "Desert");
-        assertEquals(productTester.getPositionType(), "Quality Control");
-        assertEquals(productTester.getCoreCompetency(), "Persistence");
+        assertEquals(productTester.getName().toString(), "Product tester");
+        assertEquals(productTester.getEmployer().toString(), "ACME");
+        assertEquals(productTester.getLocation().toString(), "Desert");
+        assertEquals(productTester.getPositionType().toString(), "Quality control");
+        assertEquals(productTester.getCoreCompetency().toString(), "Persistence");
 
         assertTrue(productTester instanceof Job);
+        assertTrue(productTester.getEmployer() instanceof Employer);
+        assertTrue(productTester.getLocation() instanceof Location);
+        assertTrue(productTester.getPositionType() instanceof PositionType);
+        assertTrue(productTester.getCoreCompetency() instanceof CoreCompetency);
 
 
+    }
+
+    @Test
+    public void testJobsForEquality() {
+        Job iceCreamTester = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job dogFoodTester = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertNotEquals(iceCreamTester, dogFoodTester);
     }
 }
