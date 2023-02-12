@@ -47,4 +47,43 @@ public class JobTest {
 
         assertNotEquals(iceCreamTester, dogFoodTester);
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job productTester = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String productTesterString = productTester.toString();
+        assertEquals(productTesterString.charAt(0), productTesterString.charAt((productTesterString.length())-1));
+
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job productTester = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String productTesterString = productTester.toString();
+
+        assertEquals(productTesterString, "\n" +
+                "ID: 4\n" +
+                "Name: Product tester\n" +
+                "Employer: ACME\n" +
+                "Location: Desert\n" +
+                "Position Type: Quality control\n" +
+                "Core Competency: Persistence\n" +
+                "\n");
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job productTester = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String productTesterString = productTester.toString();
+
+        assertEquals(productTesterString, "\n" +
+                "ID: 3\n" +
+                "Name: Product tester\n" +
+                "Employer: Data not available\n" +
+                "Location: Desert\n" +
+                "Position Type: Quality control\n" +
+                "Core Competency: Persistence\n" +
+                "\n");
+    }
 }
