@@ -50,17 +50,54 @@ public class Job {
     @Override
     public String toString() {
 
-        if(this.name == "")
 
-        return "\n" +
-                "ID: " + this.id + "\n" +
-                "Name: " + this.name + "\n" +
-                "Employer: " + this.employer + "\n" +
-                "Location: " + this.location + "\n" +
-                "Position Type: " + this.positionType + "\n" +
-                "Core Competency: " + this.coreCompetency + "\n" +
-                "\n";
-    };
+            String finalString = "\n"+ "ID: "+this.id+"\n";
+
+            if (this.name == "" || this.name == null) {
+                finalString = finalString + "Name: Data not available\n";
+            } else {
+                finalString = finalString + "Name: " + this.name + "\n";
+            }
+
+        if (this.getEmployer().toString() == "" || this.getEmployer().toString() == null) {
+            finalString = finalString + "Employer: Data not available\n";
+        } else {
+            finalString = finalString + "Employer: " + this.employer + "\n";
+        }
+
+        if (this.getLocation().toString() == "" || this.getLocation().toString() == null) {
+            finalString = finalString + "Location: Data not available\n";
+        } else {
+            finalString = finalString + "Location: " + this.location + "\n";
+        }
+
+        if (this.getPositionType().toString() == "" || this.getPositionType().toString() == null) {
+            finalString = finalString + "Position Type: Data not available\n";
+        } else {
+            finalString = finalString + "Position Type: " + this.positionType + "\n";
+        }
+
+        if (this.getCoreCompetency().toString() == "" || this.getCoreCompetency().toString() == null) {
+            finalString = finalString + "Core Competency: Data not available\n"+"\n";
+        } else {
+            finalString = finalString + "Core Competency: " + this.coreCompetency + "\n"+"\n";
+        }
+
+        return finalString;
+
+
+
+
+            //return "\n" +
+                    //"ID: " + this.id + "\n" +
+                    //"Name: " + this.name + "\n" +
+                    //"Employer: " + this.employer + "\n" +
+                    //"Location: " + this.location + "\n" +
+                    //"Position Type: " + this.positionType + "\n" +
+                    //"Core Competency: " + this.coreCompetency + "\n" +
+                    //"\n";
+
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
