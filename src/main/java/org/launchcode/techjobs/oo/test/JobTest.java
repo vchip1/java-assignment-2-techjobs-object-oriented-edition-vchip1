@@ -74,7 +74,7 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job productTester = new Job("", new Employer(), new Location(), new PositionType(), new CoreCompetency());
+        Job productTester = new Job("", new Employer(""), new Location(), new PositionType(), new CoreCompetency());
         String productTesterString = productTester.toString();
 
         assertEquals(productTesterString, "\n" +
